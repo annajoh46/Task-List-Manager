@@ -1,7 +1,7 @@
 const taskManager = new TaskManager()
-taskManager.addTask("laundry", "fold", "mom", "June 1 2023")
-console.log(taskManager.tasks);
 
+console.log(taskManager.tasks)
+document.getElementById("task-form").addEventListener("submit", validFormFieldInput)
 
 function validFormFieldInput(event) {
   event.preventDefault();
@@ -14,14 +14,16 @@ function validFormFieldInput(event) {
     const newTaskAssignedInput = document.querySelector('#newTaskAssignedInput');
     const assigned = newTaskAssignedInput.value;
     console.log("Assigned:  "+assigned);
-    const dateInput = document.querySelector('#newTaskDescriptionInput');
+    const dateInput = document.querySelector('#dateInput');
     const date = dateInput.value;
     console.log("date:  "+date);
     if (!name || !description || !assigned)
 return ;
 console.log("formValidated")
+taskManager.addTask(name, description, assigned, date)
+console.log(taskManager);
 }
-document.getElementById("task-form").addEventListener("submit", validFormFieldInput)
+
 
 function myFunction() {
     var x = document.getElementById("myDIV");
